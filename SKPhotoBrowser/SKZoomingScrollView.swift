@@ -9,7 +9,9 @@
 import UIKit
 
 open class SKZoomingScrollView: UIScrollView {
+    
     var captionView: SKCaptionView!
+    
     var photo: SKPhotoProtocol! {
         didSet {
             imageView.image = nil
@@ -207,10 +209,10 @@ open class SKZoomingScrollView: UIScrollView {
         
         if let image = photo.underlyingImage, photo != nil {
             displayImage(image)
-		    } else {
-			    // change contentSize will reset contentOffset, so only set the contentsize zero when the image is nil
-			    contentSize = CGSize.zero
-		    }
+        } else {
+            // change contentSize will reset contentOffset, so only set the contentsize zero when the image is nil
+            contentSize = CGSize.zero
+        }
         setNeedsLayout()
     }
     
