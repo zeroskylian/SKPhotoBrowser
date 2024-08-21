@@ -44,6 +44,7 @@ open class SKCaptionView: UIView {
 }
 
 private extension SKCaptionView {
+    
     func setup() {
         isOpaque = false
         autoresizingMask = [.flexibleWidth, .flexibleTopMargin, .flexibleRightMargin, .flexibleLeftMargin]
@@ -65,7 +66,7 @@ private extension SKCaptionView {
         photoLabel.shadowColor = UIColor(white: 0.0, alpha: 0.5)
         photoLabel.shadowOffset = CGSize(width: 0.0, height: 1.0)
         photoLabel.text = photo?.caption
-
+        
         addSubview(photoLabel)
     }
 }
