@@ -43,4 +43,12 @@ struct AppConfigure {
             return UIApplication.shared.statusBarOrientation
         }
     }
+    
+    static var statusBarFrame: CGRect {
+        if #available(iOS 13.0, *) {
+            return keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+        } else {
+            return UIApplication.shared.statusBarFrame
+        }
+    }
 }
