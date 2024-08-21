@@ -268,10 +268,9 @@
 			};
 			buildConfigurationList = 8909B5521BC792150060A053 /* Build configuration list for PBXProject "SKPhotoBrowserExample" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);

@@ -51,4 +51,12 @@ struct AppConfigure {
             return UIApplication.shared.statusBarFrame
         }
     }
+    
+    static var isStatusBarHidden: Bool {
+        if #available(iOS 13.0, *) {
+            return keyWindow?.windowScene?.statusBarManager?.isStatusBarHidden ?? false
+        } else {
+            return UIApplication.shared.isStatusBarHidden
+        }
+    }
 }

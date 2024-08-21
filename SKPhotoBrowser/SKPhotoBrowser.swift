@@ -56,7 +56,7 @@ open class SKPhotoBrowser: UIViewController {
     open weak var delegate: SKPhotoBrowserDelegate?
 
     // statusbar initial state
-    private var statusbarHidden: Bool = UIApplication.shared.isStatusBarHidden
+    private var statusbarHidden: Bool = AppConfigure.isStatusBarHidden
     
     // strings
     open var cancelTitle = "Cancel"
@@ -473,11 +473,9 @@ internal extension SKPhotoBrowser {
                 
                 let animationDuration: Double = Double(abs(velocityY) * 0.0002 + 0.2)
                 
-                UIView.beginAnimations(nil, context: nil)
-                UIView.setAnimationDuration(animationDuration)
-                UIView.setAnimationCurve(UIView.AnimationCurve.easeIn)
-                zoomingScrollView.center = CGPoint(x: finalX, y: finalY)
-                UIView.commitAnimations()
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseIn) {
+                    zoomingScrollView.center = CGPoint(x: finalX, y: finalY)
+                }
             }
         }
     }
