@@ -18,11 +18,13 @@ class FromLocalViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
 
         // Static setup
-        SKPhotoBrowserOptions.displayAction = true
-        SKPhotoBrowserOptions.displayStatusbar = true
-        SKPhotoBrowserOptions.displayCounterLabel = true
-        SKPhotoBrowserOptions.displayBackAndForwardButton = true
-
+        SKPhotoBrowserOptions.displayAction = false
+        SKPhotoBrowserOptions.displayStatusbar = false
+        SKPhotoBrowserOptions.displayCounterLabel = false
+        SKPhotoBrowserOptions.displayBackAndForwardButton = false
+        SKPhotoBrowserOptions.enableSingleTapDismiss = true
+        SKPhotoBrowserOptions.displayCloseButton = false
+        
         setupTestData()
         setupCollectionView()
     }
@@ -55,6 +57,7 @@ extension FromLocalViewController {
 // MARK: - UICollectionViewDelegate
 
 extension FromLocalViewController {
+    
     @objc(collectionView:didSelectItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.row)
         browser.delegate = self
@@ -124,7 +127,7 @@ private extension FromLocalViewController {
     func createLocalPhotos() -> [SKPhotoProtocol] {
         return (0..<10).map { (i: Int) -> SKPhotoProtocol in
             let photo = SKPhoto.photoWithImage(UIImage(named: "image\(i%10).jpg")!)
-            photo.caption = caption[i%10]
+//            photo.caption = caption[i%10]
             return photo
         }
     }
