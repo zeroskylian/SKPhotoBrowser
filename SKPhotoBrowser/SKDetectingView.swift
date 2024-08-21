@@ -8,12 +8,13 @@
 
 import UIKit
 
-@objc protocol SKDetectingViewDelegate {
+protocol SKDetectingViewDelegate: AnyObject {
     func handleSingleTap(_ view: UIView, touch: UITouch)
     func handleDoubleTap(_ view: UIView, touch: UITouch)
 }
 
 class SKDetectingView: UIView {
+    
     weak var delegate: SKDetectingViewDelegate?
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

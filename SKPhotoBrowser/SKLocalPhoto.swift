@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - SKLocalPhoto
-open class SKLocalPhoto: NSObject, SKPhotoProtocol {
+open class SKLocalPhoto: SKPhotoProtocol {
     
     open var underlyingImage: UIImage!
     open var photoURL: String!
@@ -18,18 +18,12 @@ open class SKLocalPhoto: NSObject, SKPhotoProtocol {
     open var caption: String?
     open var index: Int = 0
     
-    override init() {
-        super.init()
-    }
-    
-    convenience init(url: String) {
-        self.init()
+    init(url: String) {
         photoURL = url
     }
     
     convenience init(url: String, holder: UIImage?) {
-        self.init()
-        photoURL = url
+        self.init(url: url)
         underlyingImage = holder
     }
     

@@ -8,12 +8,12 @@
 
 import UIKit
 
-@objc public protocol SKPhotoBrowserAnimatorDelegate {
+public protocol SKPhotoBrowserAnimatorDelegate {
     func willPresent(_ browser: SKPhotoBrowser)
     func willDismiss(_ browser: SKPhotoBrowser)
 }
 
-class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
+class SKAnimator: SKPhotoBrowserAnimatorDelegate {
     fileprivate let window = UIApplication.shared.preferredApplicationWindow
     fileprivate var resizableImageView: UIImageView?
     fileprivate var finalImageViewFrame: CGRect = .zero
@@ -39,8 +39,7 @@ class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
         return 1.0
     }
     
-    override init() {
-        super.init()
+    init() {
         window?.addSubview(backgroundView)
     }
     

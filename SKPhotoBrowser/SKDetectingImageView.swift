@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol SKDetectingImageViewDelegate {
+protocol SKDetectingImageViewDelegate: AnyObject {
     func handleImageViewSingleTap(_ touchPoint: CGPoint)
     func handleImageViewDoubleTap(_ touchPoint: CGPoint)
 }

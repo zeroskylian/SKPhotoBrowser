@@ -7,11 +7,8 @@
 //
 
 import UIKit
-#if canImport(SKPhotoBrowserObjC)
-import SKPhotoBrowserObjC
-#endif
 
-@objc public protocol SKPhotoProtocol: NSObjectProtocol {
+public protocol SKPhotoProtocol: AnyObject {
     var index: Int { get set }
     var underlyingImage: UIImage! { get }
     var caption: String? { get }
@@ -21,7 +18,7 @@ import SKPhotoBrowserObjC
 }
 
 // MARK: - SKPhoto
-open class SKPhoto: NSObject, SKPhotoProtocol {
+open class SKPhoto: SKPhotoProtocol {
     open var index: Int = 0
     open var underlyingImage: UIImage!
     open var caption: String?
@@ -29,9 +26,7 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
     open var shouldCachePhotoURLImage: Bool = false
     open var photoURL: String!
 
-    override init() {
-        super.init()
-    }
+    init() {}
     
     convenience init(image: UIImage) {
         self.init()
